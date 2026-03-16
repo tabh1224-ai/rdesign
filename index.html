@@ -203,8 +203,8 @@
 
         .portfolio-title {
             text-align: center;
-            padding: 70px 20px 30px;
-            font-size: 32px;
+            padding: 70px 20px 40px;
+            font-size: 34px;
             color: #ffffff;
             letter-spacing: -0.5px;
             margin: 0;
@@ -213,49 +213,59 @@
         .portfolio-links {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 20px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            padding: 0 20px 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
         .portfolio-card {
             display: block;
             background-color: #181818;
             border: 1px solid #2b2b2b;
-            border-radius: 18px;
-            padding: 28px 20px;
+            border-radius: 20px;
+            padding: 32px 28px;
             text-align: center;
             transition: 0.35s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 520px;
         }
 
         .portfolio-card:hover {
             transform: translateY(-8px);
             border-color: #c9a96e;
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
         }
 
         .portfolio-card-title {
             display: block;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 12px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .portfolio-card-desc {
             display: block;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.7;
             color: #bcbcbc;
         }
 
-        .portfolio-thumb{
-            width:100%;
-            max-width:420px;
-            height:auto;
-            border-radius:12px;
+        .portfolio-thumb {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-thumb:hover {
+            transform: scale(1.04);
         }
 
         .about {
@@ -325,6 +335,7 @@
             border: 1px solid #c9a96e;
             border-radius: 12px;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .review-img:hover {
@@ -338,6 +349,51 @@
             color: #888;
             font-size: 14px;
             background-color: #111;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 92%;
+            max-height: 88vh;
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover {
+            background: #c9a96e;
+            color: #111;
         }
 
         @keyframes fadeUp {
@@ -408,14 +464,15 @@
             }
 
             .portfolio-links {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-                padding: 0 14px 10px;
+                justify-content: center;
+                gap: 20px;
+                padding: 0 16px 20px;
             }
 
             .portfolio-card {
                 padding: 20px 14px;
                 border-radius: 14px;
+                max-width: 100%;
             }
 
             .portfolio-card-title {
@@ -460,15 +517,18 @@
                 font-size: 12px;
                 padding: 16px 10px;
             }
-        }
 
-        @media (max-width: 480px) {
-            .portfolio-links {
-                grid-template-columns: 1fr;
+            .lightbox {
+                padding: 20px;
+            }
+
+            .lightbox img {
+                max-width: 96%;
+                max-height: 82vh;
             }
         }
 
-        .bottom-ad-banner{
+        .bottom-ad-banner {
             position: fixed;
             left: 50%;
             bottom: 20px;
@@ -482,34 +542,33 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.0);
         }
 
-.bottom-ad-link{
-    display:block;
-}
+        .bottom-ad-link {
+            display: block;
+        }
 
-.bottom-ad-image{
-    width: 100%;
-    border-radius:12px;
-}
+        .bottom-ad-image {
+            width: 100%;
+            border-radius: 12px;
+        }
 
-.bottom-ad-close{
-    position:absolute;
-    top:6px;
-    right:6px;
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:50%;
-    font-size:20px;
-    background:rgba(0,0,0,0.6);
-    color:#fff;
-    cursor:pointer;
-}
+        .bottom-ad-close {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            cursor: pointer;
+        }
 
-.bottom-ad-close:hover{
-    background:#c9a96e;
-    color:#111;
-}
-
+        .bottom-ad-close:hover {
+            background: #c9a96e;
+            color: #111;
+        }
     </style>
 </head>
 <body>
@@ -571,43 +630,14 @@
         </div>
     </div>
 
-    <h2 class="portfolio-title">작업물</h2>
+    <h2 class="portfolio-title">포트폴리오</h2>
 
     <div class="portfolio-links">
-        <a href="홍보지전단지.html" class="portfolio-card">
-
-            <img src="전단지1.png" class="portfolio-thumb">
-            <img src="전단지2.png" class="portfolio-thumb">
-
-            <span class="portfolio-card-title">홍보지/전단지</span>
+        <div class="portfolio-card">
+            <img src="포트폴리오1.png" class="portfolio-thumb" onclick="openLightbox(this)" alt="브랜드디자인 작업물 1">
+            <span class="portfolio-card-title">브랜드디자인</span>
             <span class="portfolio-card-desc">게임 · 산업 · 각종 홍보물 디자인</span>
-        </a>
-
-        <a href="상세페이지디자인.html" class="portfolio-card">
-
-            <img src="패키지1.png" class="portfolio-thumb">
-            <img src="패키지2.png" class="portfolio-thumb">
-
-            <span class="portfolio-card-title">웹디자인</span>
-            <span class="portfolio-card-desc">상세페이지 · 패키지 · 배너 · 브랜드</span>
-        </a>
-
-        <a href="로고디자인.html" class="portfolio-card">
-
-            <img src="로고2.png" class="portfolio-thumb">
-            <img src="로고3.png" class="portfolio-thumb">
-
-            <span class="portfolio-card-title">로고/명함/라벨 디자인</span>
-            <span class="portfolio-card-desc">브랜드 로고와 명함 라벨 디자인 작업물</span>
-        </a>
-
-        <a href="방송디자인.html" class="portfolio-card">
-
-            <img src="방송1.gif" class="p ortfolio-thumb">
-
-            <span class="portfolio-card-title">방송 디자인</span>
-            <span class="portfolio-card-desc">방송용 썸네일 · 오버레이 · 관련 디자인</span>
-        </a>
+        </div>
     </div>
 
     <h2 class="about">소개</h2>
@@ -624,50 +654,50 @@
 
     <div class="portfolio">
         <div class="item">
-            <img src="후기1.png" alt="R DESIGN 디자인 작업 후기 이미지 1" class="review-img">
+            <img src="후기1.png" alt="R DESIGN 디자인 작업 후기 이미지 1" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기2.png" alt="R DESIGN 디자인 작업 후기 이미지 2" class="review-img">
+            <img src="후기2.png" alt="R DESIGN 디자인 작업 후기 이미지 2" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기3.png" alt="R DESIGN 디자인 작업 후기 이미지 3" class="review-img">
+            <img src="후기3.png" alt="R DESIGN 디자인 작업 후기 이미지 3" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기4.png" alt="R DESIGN 디자인 작업 후기 이미지 4" class="review-img">
+            <img src="후기4.png" alt="R DESIGN 디자인 작업 후기 이미지 4" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기5.png" alt="R DESIGN 디자인 작업 후기 이미지 5" class="review-img">
+            <img src="후기5.png" alt="R DESIGN 디자인 작업 후기 이미지 5" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기6.png" alt="R DESIGN 디자인 작업 후기 이미지 6" class="review-img">
+            <img src="후기6.png" alt="R DESIGN 디자인 작업 후기 이미지 6" class="review-img" onclick="openLightbox(this)">
         </div>
 
         <div class="item">
-            <img src="후기7.png" alt="R DESIGN 디자인 작업 후기 이미지 7" class="review-img">
+            <img src="후기7.png" alt="R DESIGN 디자인 작업 후기 이미지 7" class="review-img" onclick="openLightbox(this)">
         </div>
-
     </div>
 
     <div id="bottom-ad-banner" class="bottom-ad-banner">
+        <button class="bottom-ad-close" onclick="closeBottomAd()">×</button>
 
-    <button class="bottom-ad-close" onclick="closeBottomAd()">×</button>
+        <a href="https://link.coupang.com/a/d2LM2g"
+           target="_blank"
+           rel="noopener noreferrer sponsored"
+           class="bottom-ad-link">
+            <img src="오늘의-쿠팡특가.png"
+                 alt="추천 상품"
+                 class="bottom-ad-image">
+        </a>
+    </div>
 
-    <a href="https://link.coupang.com/a/d2LM2g" 
-       target="_blank" 
-       rel="noopener noreferrer sponsored"
-       class="bottom-ad-link">
-
-        <img src="오늘의-쿠팡특가.png" 
-             alt="추천 상품" 
-             class="bottom-ad-image">
-
-    </a>
-
+    <div id="lightbox" class="lightbox" onclick="handleLightboxBackground(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <img id="lightbox-img" src="" alt="확대 이미지">
     </div>
 
     <footer>
@@ -701,10 +731,34 @@
     </script>
 
     <script>
-    function closeBottomAd(){
-    document.getElementById("bottom-ad-banner").style.display="none";
-    }
-    </script>
+        function closeBottomAd() {
+            document.getElementById("bottom-ad-banner").style.display = "none";
+        }
 
+        function openLightbox(img) {
+            document.getElementById("lightbox").classList.add("show");
+            document.getElementById("lightbox-img").src = img.src;
+            document.getElementById("lightbox-img").alt = img.alt || "확대 이미지";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").classList.remove("show");
+            document.getElementById("lightbox-img").src = "";
+            document.body.style.overflow = "";
+        }
+
+        function handleLightboxBackground(event) {
+            if (event.target.id === "lightbox") {
+                closeLightbox();
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
